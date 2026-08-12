@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sua Aeronave</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .screen {
+            width: 100%;
+            max-width: 900px;
+            background-color: #f5f6fa;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #b0c6ff 0%, #d8b4fe 100%);
+            padding: 24px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-back {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background-color: #ef4444;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+        }
+
+        main {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .tab-card {
+            flex: 1;
+            padding: 20px 10px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+            background-color: #ffffff;
+            color: #111029;
+        }
+
+        .tab-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .tab-card.active {
+            background-color: #111029;
+            color: #ffffff;
+        }
+
+        .tab-card i {
+            font-size: 26px;
+        }
+
+        .tab-label {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 100%;
+            max-width: 600px;
+            height: 1px;
+            background-color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            margin-bottom: 35px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .info-value.highlight {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .btn-action {
+            width: 100%;
+            max-width: 600px;
+            background-color: #e3cc35;
+            color: #0f172a;
+            border: none;
+            border-radius: 14px;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(227, 204, 53, 0.3);
+            transition: background-color 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #d4bd28;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+                background-color: #f5f6fa;
+            }
+
+            .screen {
+                border-radius: 0;
+                box-shadow: none;
+                min-height: 100vh;
+            }
+
+            header {
+                padding: 16px 20px;
+            }
+
+            .header-title {
+                font-size: 17px;
+            }
+
+            .btn-back {
+                width: 36px;
+                height: 36px;
+            }
+
+            main {
+                padding: 24px 16px;
+            }
+
+            .nav-tabs {
+                gap: 10px;
+            }
+
+            .tab-card {
+                padding: 14px 6px;
+                border-radius: 12px;
+            }
+
+            .tab-label {
+                font-size: 11px;
+            }
+
+            .info-card {
+                padding: 4px 16px;
+                border-radius: 18px;
+            }
+
+            .info-row {
+                padding: 14px 0;
+            }
+
+            .info-label {
+                font-size: 12px;
+            }
+
+            .info-value {
+                font-size: 13px;
+            }
+
+            .btn-action {
+                padding: 16px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="screen">
+        <header>
+            <div class="header-left">
+                <button class="btn-back">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <h1 class="header-title">Para Sua Aeronave</h1>
+            </div>
+            <div class="header-actions">
+                <div class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span class="badge">!</span>
+                </div>
+                <div class="icon-btn">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="nav-tabs">
+                <div class="tab-card active">
+                    <i class="fa-solid fa-gear">
+                        
+                    </i>
+                    <span class="tab-label">Manutenção</span>
+                </div>
+                <div class="tab-card">
+                    
+                        <a href="categoria.html">
+                            <i class="fa-solid fa-puzzle-piece">
+
+                            </i>
+                        </a>
+                        
+                    </i>
+                    <span class="tab-label">Peças</span>
+                </div>
+               
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-card">
+                <div class="info-row">
+                    <span class="info-label">Próxima revisão</span>
+                    <span class="info-value">Inspeção 300h</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Aeronave</span>
+                    <span class="info-value">Praetor 600 - PR-BXA</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Prazo estimado</span>
+                    <span class="info-value">14 a 21 dias</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Base técnica</span>
+                    <span class="info-value highlight">Hangar Boreal - POA</span>
+                </div>
+            </div>
+
+            <a href="comprado.html"><button class="btn-action">Agendar Manutenção</button></a>
+        </main>
+    </div>
+
+</body>
+</html>
