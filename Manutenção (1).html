@@ -80,6 +80,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 26px;
+            height: 26px;
+        }
+
+        .icon-btn svg {
+            width: 24px;
+            height: 24px;
         }
 
         .badge {
@@ -127,13 +134,15 @@
             gap: 10px;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             background-color: #ffffff;
             color: #111029;
+            text-decoration: none;
         }
 
         .tab-card:hover {
             transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
         }
 
         .tab-card.active {
@@ -143,6 +152,12 @@
 
         .tab-card i {
             font-size: 26px;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
         }
 
         .tab-label {
@@ -293,7 +308,7 @@
         <header>
             <div class="header-left">
                 <button class="btn-back">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </button>
@@ -301,14 +316,14 @@
             </div>
             <div class="header-actions">
                 <div class="icon-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                     <span class="badge">!</span>
                 </div>
                 <div class="icon-btn">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
@@ -319,23 +334,13 @@
         <main>
             <div class="nav-tabs">
                 <div class="tab-card active">
-                    <i class="fa-solid fa-gear">
-                        
-                    </i>
+                    <i class="fa-solid fa-gear"></i>
                     <span class="tab-label">Manutenção</span>
                 </div>
-                <div class="tab-card">
-                    
-                        <a href="categoria.html">
-                            <i class="fa-solid fa-puzzle-piece">
-
-                            </i>
-                        </a>
-                        
-                    </i>
+                <a class="tab-card" href="categoria.html">
+                    <i class="fa-solid fa-puzzle-piece"></i>
                     <span class="tab-label">Peças</span>
-                </div>
-               
+                </a>
             </div>
 
             <div class="divider"></div>
