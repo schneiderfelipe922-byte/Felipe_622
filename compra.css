@@ -104,38 +104,49 @@
             padding: 30px;
         }
 
-        .nav-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 35px;
-        }
+.nav-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
 
-        .nav-card {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-left: 87px;
-            width: 140px;
-            gap: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+.nav-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;          
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-        .nav-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
+.nav-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
 
-        .nav-card.active {
-            background-color: #0c0827;
-            color: #ffffff;
-        }
+.nav-card.active {
+    background-color: #0c0827;
+    color: #ffffff;
+}
+
+.nav-card i {
+    font-size: 28px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; 
+}
 
         .nav-card img, .nav-card i {
             font-size: 28px;
