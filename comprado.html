@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra - AERONAVES</title>
+    <link rel="stylesheet" href="aeronave.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f6fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #a5c0ff 0%, #d4a5ff 100%);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-back {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+
+        header h1 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #1a1a2e;
+            text-transform: uppercase;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-mail {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .icon-mail svg {
+            width: 26px;
+            height: 26px;
+            fill: none;
+            stroke: #1a1a2e;
+            stroke-width: 2;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background-color: #ff3b30;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-user {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .icon-user svg {
+            width: 20px;
+            height: 20px;
+            fill: #1a1a2e;
+        }
+
+        /* CONTEÚDO PRINCIPAL DE CONFIRMAÇÃO */
+        .confirmation-wrapper {
+            padding: 40px 60px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .status-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #e3fadc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .status-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #2e7d32;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .subtitle {
+            color: #b5c000;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .title span {
+            color: #5c62ec;
+        }
+
+        .description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* CARD DE RESUMO DA COMPRA */
+        .order-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .order-header {
+            background: linear-gradient(135deg, rgba(165, 192, 255, 0.3) 0%, rgba(212, 165, 255, 0.3) 100%);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-id {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1a1a2e;
+            letter-spacing: 0.5px;
+        }
+
+        .order-date {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .order-body {
+            padding: 25px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .aircraft-preview {
+            width: 40%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .aircraft-details {
+            width: 60%;
+        }
+
+        .aircraft-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .aircraft-specs {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .price-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .price-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #5c62ec;
+        }
+
+        /* DADOS DA TRANSAÇÃO */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 25px 25px;
+        }
+
+        .info-box {
+            background-color: #f8f9fe;
+            padding: 12px 15px;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        /* BOTOES DE AÇÃO */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: #e3ca3b;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #d4bc31;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #5c62ec;
+            border: 2px solid #5c62ec;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5c62ec;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .confirmation-wrapper {
+                padding: 30px 20px 40px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .order-body {
+                flex-direction: column;
+            }
+
+            .aircraft-preview, .aircraft-details {
+                width: 100%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <a href="index.html" class="btn-back">←</a>
+                <h1>AERONAVES</h1>
+            </div>
+            <div class="header-icons">
+                <div class="icon-mail">
+                    <span class="badge">1</span>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div class="icon-user">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <main class="confirmation-wrapper">
+            <div class="status-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <div class="subtitle">FROTA BOREAL</div>
+            <h2 class="title">
+                Reserva <span>CONFIRMADA</span>
+            </h2>
+            <p class="description">
+                Parabéns! Sua solicitação de aquisição foi processada com sucesso. Nosso consultor de aviação entrará em contato em breve.
+            </p>
+
+            <div class="order-card">
+                <div class="order-header">
+                    <span class="order-id">PEDIDO #BOR-84920</span>
+                    <span class="order-date">11/08/2026</span>
+                </div>
+
+                
+                <div class="info-grid">
+                    <div class="info-box">
+                        <div class="info-label">Forma de Pagamento</div>
+                        <div class="info-value">Transferência Internacional (Escrow)</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Status do Pagamento</div>
+                        <div class="info-value" style="color: #2e7d32;">Aprovado</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Base de Entrega</div>
+                        <div class="info-value">Hangar Boreal - SBPQ</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Consultor Responsável</div>
+                        <div class="info-value">Cap. Eduardo Silva</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="btn-secondary">Baixar Comprovante (PDF)</a>
+                <a href="aeronave.html" class="btn-primary">Voltar à Frota</a>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
