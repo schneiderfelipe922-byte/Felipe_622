@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+.screen {
+    width: 100%;
+    max-width: 480px; 
+    background-color: #f5f6fa;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    background: linear-gradient(135deg, #a7c5ff 0%, #d8b2ff 100%);
+    padding: 30px 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-back {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #0b092b;
+    font-size: 14px;
+}
+
+.header-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0b092b;
+    letter-spacing: 0.5px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icon-btn {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    color: #0b092b;
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+
+main {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.tab-card {
+    flex: 1;
+    background-color: #ffffff;
+    color: #0b092b;
+    padding: 20px 10px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.tab-card:hover {
+    transform: translateY(-2px);
+}
+
+.tab-card.active {
+    background-color: #0c0827;
+    color: #ffffff;
+}
+
+.tab-card i {
+    font-size: 24px;
+}
+
+.tab-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #d1d5db;
+    margin-bottom: 25px;
+}
+
+
+.category-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.category-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.image-placeholder {
+    width: 55px;
+    height: 55px;
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.card-info h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0b092b;
+    margin-bottom: 4px;
+}
+
+.card-info p {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.3;
+}
+
+.btn-explore {
+    color: #5865f2;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 6px 8px;
+    transition: opacity 0.2s;
+}
+
+.btn-explore:hover {
+    opacity: 0.8;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+        background-color: #f5f6fa;
+    }
+
+    .screen {
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+}

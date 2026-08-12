@@ -1,0 +1,297 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #eef2f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #f7f9fc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #a4bafc 0%, #d4bbfd 100%);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+       .top-bar {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-back {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.page-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.5px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-wrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -3px;
+    right: -2px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+        .content {
+            padding: 30px;
+        }
+
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .nav-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 70px;
+            width: 140px;
+           
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-card.active {
+            background-color: #0c0827;
+            color: #ffffff;
+        }
+
+        .nav-card img, .nav-card i {
+            font-size: 28px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-card.active i {
+            color: #ffffff;
+        }
+
+        .nav-card span {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            color: #b5c234;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .main-heading {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0b132b;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .highlight-text {
+            color: #5b6bf9;
+            display: block;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e1e6ed;
+            margin: 20px 0 25px 0;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .item-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-image {
+            width: 65px;
+            height: 55px;
+            background-color: #d8d8d8;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .item-info h3 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0b132b;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .item-info p {
+            font-size: 11px;
+            color: #718096;
+            line-height: 1.3;
+        }
+
+        .item-price {
+            font-size: 15px;
+            font-weight: 800;
+            color: #5b6bf9;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+                background-color: #f7f9fc;
+            }
+
+            .container {
+                max-width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: 100vh;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .nav-cards {
+                gap: 10px;
+                margin-bottom: 25px;
+            }
+
+            .nav-card {
+                padding: 15px 5px;
+                border-radius: 12px;
+            }
+
+            .nav-card span {
+                font-size: 10px;
+            }
+
+            .item-card {
+                padding: 12px;
+                border-radius: 12px;
+            }
+
+            .item-image {
+                width: 50px;
+                height: 45px;
+            }
+
+            .item-info h3 {
+                font-size: 12px;
+            }
+
+            .item-info p {
+                font-size: 10px;
+            }
+
+            .item-price {
+                font-size: 13px;
+            }
+        }
